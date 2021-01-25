@@ -14,7 +14,11 @@ public class SouthRover extends Rover {
     }
 
     public SouthRover moveForward() {
-         return surface.moveRoverIfFreeAt(position.increaseY(), this);
+        Position positionNew = position.increaseY();
+        if(surface.isFree(positionNew)) {
+            return new SouthRover(positionNew, this.surface);
+        }
+        return this;
     }
 
     public WestRover turnRight() {

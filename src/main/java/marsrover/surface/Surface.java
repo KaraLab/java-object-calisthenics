@@ -13,32 +13,8 @@ public class Surface {
         this.surfaceMap = surfaceMap;
     }
 
-    public NorthRover moveRoverIfFreeAt(Position position, NorthRover rover) {
-        if (surfaceMap.get(position) instanceof FreeSurfaceObject) {
-            return new NorthRover(position, this);
-        }
-        return rover;
-    }
-
-    public EastRover moveRoverIfFreeAt(Position position, EastRover rover) {
-        if (surfaceMap.get(position) instanceof FreeSurfaceObject) {
-            return new EastRover(position, this);
-        }
-        return rover;
-    }
-
-    public SouthRover moveRoverIfFreeAt(Position position, SouthRover rover) {
-        if (surfaceMap.get(position) instanceof FreeSurfaceObject) {
-            return new SouthRover(position, this);
-        }
-        return rover;
-    }
-
-    public WestRover moveRoverIfFreeAt(Position position, WestRover rover) {
-        if (surfaceMap.get(position) instanceof FreeSurfaceObject) {
-            return new WestRover(position, this);
-        }
-        return rover;
+    public boolean isFree(Position position) {
+        return surfaceMap.get(position) instanceof FreeSurfaceObject;
     }
 
     public void print(PrintStream out, Rover rover, Position roverPosition) {
